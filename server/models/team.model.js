@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
 const TeamSchema = new mongoose.Schema({
-    title: {
+    name: {
         type: String,
-        required: true,
+        required: [true, 'Name is requered'],
+        minlength: [2, 'Name must be at least 2 characters in length']
     
     },
-    price: {type: Number},
-    descrip:{type: String},
+    position:{type: String},
 },{timestamps:true});
 
-module.exports.Team = mongoose.model("Team",ProductSchema)
+module.exports.Team = mongoose.model("Team",TeamSchema)
